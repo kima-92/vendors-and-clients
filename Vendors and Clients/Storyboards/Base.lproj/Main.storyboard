@@ -313,40 +313,59 @@
             </objects>
             <point key="canvasLocation" x="4333" y="-141"/>
         </scene>
-        <!--View Controller-->
+        <!--New User View Controller-->
         <scene sceneID="n2o-Dd-RcE">
             <objects>
-                <viewController id="kTC-cd-nHf" sceneMemberID="viewController">
+                <viewController id="kTC-cd-nHf" customClass="NewUserViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CP7-aD-tCo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add new Client" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-J7-eHb">
-                                <rect key="frame" x="156" y="183" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Client" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIy-J7-eHb">
+                                <rect key="frame" x="30" y="108" width="354" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUm-W8-rMV">
-                                <rect key="frame" x="57" y="278" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3X-X1-6y0">
-                                <rect key="frame" x="57" y="316" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="z4L-gg-N0t">
+                                <rect key="frame" x="30" y="179" width="354" height="82"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RRX-gG-IXd">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Employee Count" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-99-RMY">
+                                        <rect key="frame" x="0.0" y="48" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JWo-wv-ivo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z4L-gg-N0t" firstAttribute="top" secondItem="SIy-J7-eHb" secondAttribute="bottom" constant="30" id="7Mg-WM-TFr"/>
+                            <constraint firstItem="SIy-J7-eHb" firstAttribute="leading" secondItem="JWo-wv-ivo" secondAttribute="leading" constant="30" id="F1S-aH-oMK"/>
+                            <constraint firstItem="JWo-wv-ivo" firstAttribute="trailing" secondItem="SIy-J7-eHb" secondAttribute="trailing" constant="30" id="Lrn-dU-cCm"/>
+                            <constraint firstItem="JWo-wv-ivo" firstAttribute="trailing" secondItem="z4L-gg-N0t" secondAttribute="trailing" constant="30" id="O4B-Sm-4Em"/>
+                            <constraint firstItem="SIy-J7-eHb" firstAttribute="top" secondItem="JWo-wv-ivo" secondAttribute="top" constant="20" id="VcW-36-iso"/>
+                            <constraint firstItem="z4L-gg-N0t" firstAttribute="leading" secondItem="JWo-wv-ivo" secondAttribute="leading" constant="30" id="yNn-sH-gA9"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Unf-Bz-zAM"/>
+                    <navigationItem key="navigationItem" id="Unf-Bz-zAM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="sZx-Bp-m70">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="kTC-cd-nHf" id="VR7-cO-Dba"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="employeeCountTextField" destination="OvJ-99-RMY" id="kPA-Wm-xKn"/>
+                        <outlet property="nameTextField" destination="RRX-gG-IXd" id="W0K-f0-zt8"/>
+                        <outlet property="newUserLabel" destination="SIy-J7-eHb" id="vlA-Ic-T6W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0S-pA-Tol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

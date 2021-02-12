@@ -9,6 +9,10 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
+    var userType: UserType?
+    
     // MARK: - Outlets
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -121,28 +125,40 @@ class DashboardTableViewController: UITableViewController {
             guard let userListTableVC = segue.destination as? UserListTableViewController else { return }
             userListTableVC.userType = .vendor
         }
+        
+        // Segue to NewUserViewController
+        if segue.identifier == "createNewUserFromDashboardSegue" {
+            guard let newUserVC = segue.destination as? NewUserViewController else { return }
+            newUserVC.userType = self.userType
+        }
     }
     
     // MARK: - Methods
     
     private func showAddNewAlert() {
+        /// Will present alert prompting user to select what they want to create: Client, Vendor, DataTransfer
         
         let alert = UIAlertController(title: "Add new", message: nil, preferredStyle: UIAlertController.Style.alert)
 
         // Client Button
         alert.addAction(UIAlertAction(title: "Client", style: UIAlertAction.Style.default, handler: { action in
+            self.userType = .client
             self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
         }))
         
         // Vendor Button
         alert.addAction(UIAlertAction(title: "Vendor", style: UIAlertAction.Style.default, handler: { action in
+            self.userType = .vendor
             self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
         }))
         
-        // Data transfer schedule
+        // Data Transfer schedule Button
         alert.addAction(UIAlertAction(title: "Data Request", style: UIAlertAction.Style.default, handler: { action in
             self.performSegue(withIdentifier: "NewDataTransferFromDashboardSegue", sender: self)
         }))
+        
+        // Cancel Button
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
