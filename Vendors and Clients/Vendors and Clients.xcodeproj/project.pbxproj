@@ -20,10 +20,11 @@
 		FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */; };
 		FABB57C425D6BAD50070D9D8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */; };
 		FABB57CB25D6C5A90070D9D8 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57CA25D6C5A90070D9D8 /* UserType.swift */; };
-		FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */; };
 		FACD534B25D6EB040042BAE2 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */; };
 		FACD534E25D6F66E0042BAE2 /* DataTransfer+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD534D25D6F66E0042BAE2 /* DataTransfer+Convenience.swift */; };
 		FACD535325D70C180042BAE2 /* DataTransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD535225D70C170042BAE2 /* DataTransferController.swift */; };
+		FACD536625D7177F0042BAE2 /* ClientListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD536525D7177F0042BAE2 /* ClientListTableViewController.swift */; };
+		FACD536925D717890042BAE2 /* VendorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD536825D717890042BAE2 /* VendorListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +43,11 @@
 		FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vendor+Convenience.swift"; sourceTree = "<group>"; };
 		FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		FABB57CA25D6C5A90070D9D8 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
-		FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FACD534D25D6F66E0042BAE2 /* DataTransfer+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransfer+Convenience.swift"; sourceTree = "<group>"; };
 		FACD535225D70C170042BAE2 /* DataTransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferController.swift; sourceTree = "<group>"; };
+		FACD536525D7177F0042BAE2 /* ClientListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListTableViewController.swift; sourceTree = "<group>"; };
+		FACD536825D717890042BAE2 /* VendorListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */,
-				FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */,
 				FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */,
+				FACD536525D7177F0042BAE2 /* ClientListTableViewController.swift */,
+				FACD536825D717890042BAE2 /* VendorListTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -217,13 +220,14 @@
 				FA42C6D525D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld in Sources */,
 				FA42C6DC25D5C3B2003000D6 /* UsersController.swift in Sources */,
 				FACD535325D70C180042BAE2 /* DataTransferController.swift in Sources */,
+				FACD536625D7177F0042BAE2 /* ClientListTableViewController.swift in Sources */,
 				FA42C6DF25D5C551003000D6 /* Client+Convenience.swift in Sources */,
-				FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */,
 				FACD534E25D6F66E0042BAE2 /* DataTransfer+Convenience.swift in Sources */,
 				FA42C6AD25D5B40D003000D6 /* AppDelegate.swift in Sources */,
 				FA42C6AF25D5B40D003000D6 /* SceneDelegate.swift in Sources */,
 				FABB57C425D6BAD50070D9D8 /* DashboardTableViewController.swift in Sources */,
 				FA42C6CF25D5C078003000D6 /* Direction.swift in Sources */,
+				FACD536925D717890042BAE2 /* VendorListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

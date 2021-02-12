@@ -1,5 +1,5 @@
 //
-//  UserListTableViewController.swift
+//  VendorTableViewController.swift
 //  Vendors and Clients
 //
 //  Created by macbook on 2/12/21.
@@ -7,22 +7,17 @@
 
 import UIKit
 
-class UserListTableViewController: UITableViewController {
+class VendorListTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var userTypeLabel: UILabel!
-    @IBOutlet weak var userCountLabel: UILabel!
+    @IBOutlet weak var vendorCountLabel: UILabel!
     
-    // MARK: - Properties
-    
-    var userType: UserType?
-    
-    // MARK: - DidLoad Method
+    // MARK: - DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -96,20 +91,5 @@ class UserListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    // MARK: - Methods
-    
-    // Update UI
-    private func updateViews() {
-        guard let userType = userType else { return }
-        
-        switch userType {
-        case .client:
-            userTypeLabel.text = "Clients"
-        case .vendor:
-            userTypeLabel.text = "Vendors"
-        }
-    }
-    
-    // TODO: - Add an addBarButton to add a new Client or Vendor from this TableViewController
+
 }

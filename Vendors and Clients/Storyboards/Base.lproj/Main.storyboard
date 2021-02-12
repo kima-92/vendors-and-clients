@@ -119,7 +119,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-mO-Sxu">
                                             <rect key="frame" x="293" y="15.5" width="111" height="77"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
                                                     <rect key="frame" x="0.0" y="0.0" width="111" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Clients"/>
@@ -128,13 +128,13 @@
                                                         <segue destination="enf-ml-UND" kind="show" identifier="showClientsSegue" id="5BD-Sw-ul5"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
                                                     <rect key="frame" x="0.0" y="41" width="111" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Vendors"/>
                                                     <connections>
                                                         <action selector="vendorsButtonTapped:" destination="xCe-5a-H3I" eventType="touchUpInside" id="GsN-CF-hbO"/>
-                                                        <segue destination="enf-ml-UND" kind="show" identifier="ShowVendorsSegue" id="6ty-SG-tuW"/>
+                                                        <segue destination="tjs-Ly-eLD" kind="show" identifier="ShowVendorsSegue" id="NOq-6R-1uz"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="2613.04347826087" y="219.64285714285714"/>
         </scene>
-        <!--User List Table View Controller-->
+        <!--Client List Table View Controller-->
         <scene sceneID="tPM-wJ-fkS">
             <objects>
-                <tableViewController id="enf-ml-UND" customClass="UserListTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="enf-ml-UND" customClass="ClientListTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kxa-nK-ac6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,7 +227,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GIV-Ni-Mkh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClientCell" id="GIV-Ni-Mkh">
                                 <rect key="frame" x="0.0" y="94" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GIV-Ni-Mkh" id="v0x-sg-TnO">
@@ -243,15 +243,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="pzm-NJ-ml9"/>
                     <connections>
-                        <outlet property="userCountLabel" destination="ok0-4A-Rne" id="80T-Qn-pJZ"/>
-                        <outlet property="userTypeLabel" destination="0cH-8u-PC5" id="305-RW-ZNO"/>
+                        <outlet property="clientCountLabel" destination="ok0-4A-Rne" id="6fy-hf-FOj"/>
                         <segue destination="7BU-Zw-0oj" kind="show" id="8kc-El-jKV"/>
-                        <segue destination="6nd-6q-Wii" kind="show" identifier="showVendorViewControllerSegue" id="W9t-bd-ycA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoL-Vi-Tor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3721.739130434783" y="219.64285714285714"/>
+            <point key="canvasLocation" x="3899" y="-141"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hmh-rT-vHN">
@@ -367,6 +365,69 @@
             </objects>
             <point key="canvasLocation" x="2812" y="949"/>
         </scene>
+        <!--Vendor List Table View Controller-->
+        <scene sceneID="bf3-OY-TSP">
+            <objects>
+                <tableViewController id="tjs-Ly-eLD" customClass="VendorListTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="10o-yA-OxR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="PVA-jc-uAe">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="ByN-S5-Wby">
+                                    <rect key="frame" x="20" y="22" width="374" height="24"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vendors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKt-Jo-iik">
+                                            <rect key="frame" x="0.0" y="0.0" width="322.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYr-LL-ice">
+                                            <rect key="frame" x="361.5" y="0.0" width="12.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="ByN-S5-Wby" firstAttribute="centerY" secondItem="PVA-jc-uAe" secondAttribute="centerY" id="0gH-pG-aEY"/>
+                                <constraint firstAttribute="trailing" secondItem="ByN-S5-Wby" secondAttribute="trailing" constant="20" id="RxL-1a-LaN"/>
+                                <constraint firstItem="ByN-S5-Wby" firstAttribute="leading" secondItem="PVA-jc-uAe" secondAttribute="leading" constant="20" id="cS2-rO-fYw"/>
+                                <constraint firstItem="ByN-S5-Wby" firstAttribute="centerX" secondItem="PVA-jc-uAe" secondAttribute="centerX" id="vC4-6y-PmA"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="thu-gv-CKd">
+                                <rect key="frame" x="0.0" y="96" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="thu-gv-CKd" id="vA1-Df-u7b">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tjs-Ly-eLD" id="zYW-Nx-TBk"/>
+                            <outlet property="delegate" destination="tjs-Ly-eLD" id="oDz-bo-SwW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9dC-aP-6GK"/>
+                    <connections>
+                        <outlet property="vendorCountLabel" destination="OYr-LL-ice" id="ZEu-03-I9x"/>
+                        <segue destination="6nd-6q-Wii" kind="show" identifier="showVendorViewControllerSegue" id="NzP-gW-dfp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1D-go-OHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3898.5507246376815" y="610.71428571428567"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ZHS-jg-Tp0">
             <objects>
@@ -414,9 +475,6 @@
             <point key="canvasLocation" x="1702.8985507246377" y="219.64285714285714"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6ty-SG-tuW"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
