@@ -143,13 +143,29 @@
 			children = (
 				FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */,
 				FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */,
-				FACD536525D7177F0042BAE2 /* ClientListTableViewController.swift */,
-				FACD536825D717890042BAE2 /* VendorListTableViewController.swift */,
-				FACD536E25D724C60042BAE2 /* ClientTableViewController.swift */,
-				FACD537125D724CF0042BAE2 /* VendorTableViewController.swift */,
-				FACD537425D743300042BAE2 /* ScheduleClientTransferTableViewController.swift */,
+				FACD537825D749C20042BAE2 /* Vendor Side */,
+				FACD537725D749B70042BAE2 /* Client Side */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FACD537725D749B70042BAE2 /* Client Side */ = {
+			isa = PBXGroup;
+			children = (
+				FACD536525D7177F0042BAE2 /* ClientListTableViewController.swift */,
+				FACD536E25D724C60042BAE2 /* ClientTableViewController.swift */,
+				FACD537425D743300042BAE2 /* ScheduleClientTransferTableViewController.swift */,
+			);
+			path = "Client Side";
+			sourceTree = "<group>";
+		};
+		FACD537825D749C20042BAE2 /* Vendor Side */ = {
+			isa = PBXGroup;
+			children = (
+				FACD537125D724CF0042BAE2 /* VendorTableViewController.swift */,
+				FACD536825D717890042BAE2 /* VendorListTableViewController.swift */,
+			);
+			path = "Vendor Side";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

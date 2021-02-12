@@ -16,6 +16,7 @@ extension DataTransfer {
         self.client = client
         self.vendor = vendor
         self.date = date
+        self.id = UUID()
         self.direction = direction.rawValue
         
         let calendar = Calendar.current

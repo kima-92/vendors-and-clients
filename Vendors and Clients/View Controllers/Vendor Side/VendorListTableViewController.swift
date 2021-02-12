@@ -1,5 +1,5 @@
 //
-//  ClientListTableViewController.swift
+//  VendorTableViewController.swift
 //  Vendors and Clients
 //
 //  Created by macbook on 2/12/21.
@@ -8,16 +8,16 @@
 import UIKit
 import CoreData
 
-class ClientListTableViewController: UITableViewController {
+class VendorListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var userController: UsersController?
-    var client: Client?
+    var vendor: Vendor?
     
-    var fetchResultsController: NSFetchedResultsController<Client> {
+    var fetchResultsController: NSFetchedResultsController<Vendor> {
         
-        let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
+        let fetchRequest: NSFetchRequest<Vendor> = Vendor.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
@@ -35,7 +35,7 @@ class ClientListTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var clientCountLabel: UILabel!
+    @IBOutlet weak var vendorCountLabel: UILabel!
     
     // MARK: - DidLoad
     
@@ -45,26 +45,27 @@ class ClientListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchResultsController.fetchedObjects?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VendorCell", for: indexPath)
 
         cell.textLabel?.text = fetchResultsController.object(at: indexPath).name
 
         return cell
     }
-    
 
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
     }
     */
 
@@ -79,47 +80,32 @@ class ClientListTableViewController: UITableViewController {
         }    
     }
     */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.client = fetchResultsController.object(at: indexPath)
-        performSegue(withIdentifier: "ShowClientTableVCSegue", sender: self)
+        self.vendor = fetchResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "ShowVendorTableVCSegue", sender: self)
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Segue to ClientTableViewController
-        if segue.identifier == "ShowClientTableVCSegue" {
-            guard let clientTableVC = segue.destination as? ClientTableViewController else { return }
-            clientTableVC.client = self.client
-            clientTableVC.userController = self.userController
+        // Segue to VendorTableViewController
+        if segue.identifier == "ShowVendorTableVCSegue" {
+            guard let vendorTableVC = segue.destination as? VendorTableViewController else { return }
+            vendorTableVC.vendor = self.vendor
+            vendorTableVC.userController = self.userController
         }
     }
     
     // MARK: - Methods
     
     private func updateViews() {
-        clientCountLabel.text = String(fetchResultsController.fetchedObjects?.count ?? 0)
+        vendorCountLabel.text = String(fetchResultsController.fetchedObjects?.count ?? 0)
     }
 }
 
-extension ClientListTableViewController: NSFetchedResultsControllerDelegate {
+extension VendorListTableViewController: NSFetchedResultsControllerDelegate {
     
       func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

@@ -14,5 +14,6 @@ extension Client {
         self.init(context: context)
         self.name = name
         self.employeeCount = Int16(employeeCount)
+        self.id = UUID()
     }
 }

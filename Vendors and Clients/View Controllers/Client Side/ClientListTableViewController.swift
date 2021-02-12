@@ -1,5 +1,5 @@
 //
-//  ScheduleClientTransferTableViewController.swift
+//  ClientListTableViewController.swift
 //  Vendors and Clients
 //
 //  Created by macbook on 2/12/21.
@@ -8,17 +8,16 @@
 import UIKit
 import CoreData
 
-class ScheduleClientTransferTableViewController: UITableViewController {
+class ClientListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var userController: UsersController?
     var client: Client?
-    var vendor: Vendor?
     
-    var fetchResultsController: NSFetchedResultsController<Vendor> {
+    var fetchResultsController: NSFetchedResultsController<Client> {
         
-        let fetchRequest: NSFetchRequest<Vendor> = Vendor.fetchRequest()
+        let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
@@ -36,37 +35,30 @@ class ScheduleClientTransferTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var dataTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var clientCountLabel: UILabel!
     
     // MARK: - DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
-    
-    // MARK: - Actions
-    
-    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
-        saveDataTransfer()
-    }
-    
-    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-    }
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchResultsController.fetchedObjects?.count ?? 0
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VendorSchedulingCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath)
 
         cell.textLabel?.text = fetchResultsController.object(at: indexPath).name
 
         return cell
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,47 +79,32 @@ class ScheduleClientTransferTableViewController: UITableViewController {
         }    
     }
     */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        vendor = fetchResultsController.object(at: indexPath)
+        self.client = fetchResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "ShowClientTableVCSegue", sender: self)
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // Segue to ClientTableViewController
+        if segue.identifier == "ShowClientTableVCSegue" {
+            guard let clientTableVC = segue.destination as? ClientTableViewController else { return }
+            clientTableVC.client = self.client
+            clientTableVC.userController = self.userController
+        }
     }
-    */
     
     // MARK: - Methods
     
-    private func saveDataTransfer() {
-        guard let userController = userController,
-              let vendor = vendor,
-              let client = client else { return }
-        // TODO: - Alret user if there is missing information
+    private func updateViews() {
+        clientCountLabel.text = String(fetchResultsController.fetchedObjects?.count ?? 0)
     }
 }
 
-extension ScheduleClientTransferTableViewController: NSFetchedResultsControllerDelegate {
+extension ClientListTableViewController: NSFetchedResultsControllerDelegate {
     
       func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

@@ -1,5 +1,5 @@
 //
-//  VendorTableViewController.swift
+//  ScheduleClientTransferTableViewController.swift
 //  Vendors and Clients
 //
 //  Created by macbook on 2/12/21.
@@ -8,11 +8,12 @@
 import UIKit
 import CoreData
 
-class VendorListTableViewController: UITableViewController {
+class ScheduleClientTransferTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var userController: UsersController?
+    var client: Client?
     var vendor: Vendor?
     
     var fetchResultsController: NSFetchedResultsController<Vendor> {
@@ -35,39 +36,37 @@ class VendorListTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var vendorCountLabel: UILabel!
+    @IBOutlet weak var dataTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK: - DidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
     }
-
-    // MARK: - Table view data source
     
+    // MARK: - Actions
+    
+    @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
+        saveDataTransfer()
+    }
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+    }
+    
+    // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchResultsController.fetchedObjects?.count ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VendorCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VendorSchedulingCell", for: indexPath)
 
         cell.textLabel?.text = fetchResultsController.object(at: indexPath).name
 
         return cell
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,47 +88,31 @@ class VendorListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.vendor = fetchResultsController.object(at: indexPath)
-        performSegue(withIdentifier: "ShowVendorTableVCSegue", sender: self)
+        vendor = fetchResultsController.object(at: indexPath)
     }
     
+    /*
     // MARK: - Navigation
-    
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Segue to VendorTableViewController
-        if segue.identifier == "ShowVendorTableVCSegue" {
-            guard let vendorTableVC = segue.destination as? VendorTableViewController else { return }
-            vendorTableVC.vendor = self.vendor
-            vendorTableVC.userController = self.userController
-        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
     
     // MARK: - Methods
     
-    private func updateViews() {
-        vendorCountLabel.text = String(fetchResultsController.fetchedObjects?.count ?? 0)
+    private func saveDataTransfer() {
+        guard let userController = userController,
+              let vendor = vendor,
+              let client = client else { return }
+        // TODO: - Alret user if there is missing information
     }
 }
 
-extension VendorListTableViewController: NSFetchedResultsControllerDelegate {
+extension ScheduleClientTransferTableViewController: NSFetchedResultsControllerDelegate {
     
       func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

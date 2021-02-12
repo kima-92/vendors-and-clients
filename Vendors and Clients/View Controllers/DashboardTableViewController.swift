@@ -29,11 +29,6 @@ class DashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Actions
@@ -77,14 +72,6 @@ class DashboardTableViewController: UITableViewController {
     */
 
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -95,22 +82,6 @@ class DashboardTableViewController: UITableViewController {
         }    
     }
     */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
     
@@ -147,8 +118,9 @@ class DashboardTableViewController: UITableViewController {
         }
     }
     
+    // New entry selection
     private func showAddNewAlert() {
-        /// Will present alert prompting user to select what they want to create: Client, Vendor, DataTransfer
+        // Will present alert prompting user to select what they want to create: Client, Vendor, DataTransfer
         
         let alert = UIAlertController(title: "Add new", message: nil, preferredStyle: UIAlertController.Style.alert)
 
