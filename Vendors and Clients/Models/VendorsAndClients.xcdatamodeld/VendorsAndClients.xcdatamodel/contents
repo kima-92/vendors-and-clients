@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Client" representedClassName="Client" syncable="YES" codeGenerationType="class">
         <attribute name="employeeCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="dataTransfers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataTransfer"/>
         <relationship name="vendors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vendor"/>
+    </entity>
+    <entity name="DataTransfer" representedClassName="DataTransfer" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="day" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="direction" optional="YES" attributeType="String"/>
+        <attribute name="month" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="week" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client"/>
+        <relationship name="vendor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vendor"/>
     </entity>
     <entity name="Vendor" representedClassName="Vendor" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="clients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Client"/>
+        <relationship name="dataTransfers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DataTransfer"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="Vendor" positionX="279.33984375" positionY="-12.21875" width="128" height="73"/>
+        <element name="Client" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Vendor" positionX="279.33984375" positionY="-12.21875" width="128" height="88"/>
+        <element name="DataTransfer" positionX="116.67578125" positionY="117.62109375" width="128" height="148"/>
     </elements>
 </model>

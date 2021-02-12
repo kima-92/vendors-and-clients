@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Direction {
+enum Direction: String {
     case input
     case output
     case both
