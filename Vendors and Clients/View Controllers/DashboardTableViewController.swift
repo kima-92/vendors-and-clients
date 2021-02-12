@@ -138,37 +138,4 @@ class DashboardTableViewController: UITableViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-    /*
-     class ViewController: UIViewController {
-
-         @IBAction func showAlertButtonTapped(_ sender: UIButton) {
-
-             // create the alert
-             let alert = UIAlertController(title: "Notice", message: "Lauching this missile will destroy the entire universe. Is this what you intended to do?", preferredStyle: UIAlertController.Style.alert)
-
-             // add the actions (buttons)
-             alert.addAction(UIAlertAction(title: "Remind Me Tomorrow", style: UIAlertAction.Style.default, handler: nil))
-             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-             alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: nil))
-
-             // show the alert
-             self.present(alert, animated: true, completion: nil)
-         }
-     }
-     
-     
-     Handling Button Taps
-
-     The handler was nil in the above examples. You can replace nil with a closure to do something when the user taps a button. For example:
-
-     alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: { action in
-
-         // do something like...
-         self.launchMissile()
-
-     }))
-
-     */
-
 }
