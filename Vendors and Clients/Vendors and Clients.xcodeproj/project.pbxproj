@@ -23,6 +23,7 @@
 		FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */; };
 		FACD534B25D6EB040042BAE2 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */; };
 		FACD534E25D6F66E0042BAE2 /* DataTransfer+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD534D25D6F66E0042BAE2 /* DataTransfer+Convenience.swift */; };
+		FACD535325D70C180042BAE2 /* DataTransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD535225D70C170042BAE2 /* DataTransferController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		FACD534A25D6EB040042BAE2 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		FACD534D25D6F66E0042BAE2 /* DataTransfer+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTransfer+Convenience.swift"; sourceTree = "<group>"; };
+		FACD535225D70C170042BAE2 /* DataTransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				FA42C6DB25D5C3B2003000D6 /* UsersController.swift */,
+				FACD535225D70C170042BAE2 /* DataTransferController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */,
 				FA42C6D525D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld in Sources */,
 				FA42C6DC25D5C3B2003000D6 /* UsersController.swift in Sources */,
+				FACD535325D70C180042BAE2 /* DataTransferController.swift in Sources */,
 				FA42C6DF25D5C551003000D6 /* Client+Convenience.swift in Sources */,
 				FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */,
 				FACD534E25D6F66E0042BAE2 /* DataTransfer+Convenience.swift in Sources */,

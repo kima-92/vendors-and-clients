@@ -27,7 +27,7 @@ class DashboardTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -136,6 +136,12 @@ class DashboardTableViewController: UITableViewController {
     }
     
     // MARK: - Methods
+    
+    private func updateViews() {
+        if let clientCount = userController.fetchClientCount() {
+            clientCountLabel.text = String(clientCount)
+        }
+    }
     
     private func showAddNewAlert() {
         /// Will present alert prompting user to select what they want to create: Client, Vendor, DataTransfer

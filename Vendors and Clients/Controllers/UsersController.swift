@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class UsersController {
     
@@ -15,6 +16,17 @@ class UsersController {
         let moc = CoreDataStack.shared.mainContext
         _ = Client(name: name, employeeCount: employeeCount, context: moc)
         CoreDataStack.shared.save(context: moc)
+    }
+    
+    func fetchClientCount() -> Int? {
+        let moc = CoreDataStack.shared.mainContext
+        let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
+        
+        let fetchedClients = try? moc.fetch(fetchRequest)
+        if let clients = fetchedClients {
+            return clients.count
+        }
+        return nil
     }
     
     // MARK: - Vendor Methods
