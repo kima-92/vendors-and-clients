@@ -157,6 +157,7 @@
                                                     <state key="normal" title="Clients"/>
                                                     <connections>
                                                         <action selector="clientsButtonTapped:" destination="xCe-5a-H3I" eventType="touchUpInside" id="SaA-N7-f62"/>
+                                                        <segue destination="enf-ml-UND" kind="show" identifier="showClientsSegue" id="5BD-Sw-ul5"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
@@ -165,6 +166,7 @@
                                                     <state key="normal" title="Vendors"/>
                                                     <connections>
                                                         <action selector="vendorsButtonTapped:" destination="xCe-5a-H3I" eventType="touchUpInside" id="GsN-CF-hbO"/>
+                                                        <segue destination="enf-ml-UND" kind="show" identifier="ShowVendorsSegue" id="6ty-SG-tuW"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -217,6 +219,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIR-2h-B1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="219.64285714285714"/>
+        </scene>
+        <!--User List Table View Controller-->
+        <scene sceneID="tPM-wJ-fkS">
+            <objects>
+                <tableViewController id="enf-ml-UND" customClass="UserListTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kxa-nK-ac6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="uG6-oB-n6v">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="7xn-aO-c1P">
+                                    <rect key="frame" x="20" y="21" width="374" height="24"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Clients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cH-8u-PC5">
+                                            <rect key="frame" x="0.0" y="0.0" width="322.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ok0-4A-Rne">
+                                            <rect key="frame" x="361.5" y="0.0" width="12.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="7xn-aO-c1P" secondAttribute="trailing" constant="20" id="Jwp-es-Grk"/>
+                                <constraint firstItem="7xn-aO-c1P" firstAttribute="centerX" secondItem="uG6-oB-n6v" secondAttribute="centerX" id="LHR-HT-iVO"/>
+                                <constraint firstItem="7xn-aO-c1P" firstAttribute="centerY" secondItem="uG6-oB-n6v" secondAttribute="centerY" id="MzI-xJ-E0E"/>
+                                <constraint firstItem="7xn-aO-c1P" firstAttribute="leading" secondItem="uG6-oB-n6v" secondAttribute="leading" constant="20" id="Ydh-C3-PDV"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GIV-Ni-Mkh">
+                                <rect key="frame" x="0.0" y="94" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GIV-Ni-Mkh" id="v0x-sg-TnO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="enf-ml-UND" id="cdH-GR-GU5"/>
+                            <outlet property="delegate" destination="enf-ml-UND" id="ILu-EM-MDP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="pzm-NJ-ml9"/>
+                    <connections>
+                        <outlet property="userCountLabel" destination="ok0-4A-Rne" id="80T-Qn-pJZ"/>
+                        <outlet property="userTypeLabel" destination="0cH-8u-PC5" id="305-RW-ZNO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoL-Vi-Tor" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2811.594202898551" y="219.64285714285714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="n2o-Dd-RcE">
@@ -293,6 +358,9 @@
             <point key="canvasLocation" x="2812" y="949"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ty-SG-tuW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

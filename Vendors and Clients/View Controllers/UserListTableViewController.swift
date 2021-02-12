@@ -1,5 +1,5 @@
 //
-//  DashboardTableViewController.swift
+//  UserListTableViewController.swift
 //  Vendors and Clients
 //
 //  Created by macbook on 2/12/21.
@@ -7,47 +7,29 @@
 
 import UIKit
 
-class DashboardTableViewController: UITableViewController {
+class UserListTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var scheduledLabel: UILabel!
-    @IBOutlet weak var scheduledCountLabel: UILabel!
+    @IBOutlet weak var userTypeLabel: UILabel!
+    @IBOutlet weak var userCountLabel: UILabel!
     
-    @IBOutlet weak var clientCountLabel: UILabel!
-    @IBOutlet weak var vendorCountLabel: UILabel!
+    // MARK: - Properties
+    
+    var userType: UserType?
     
     // MARK: - DidLoad Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    // MARK: - Actions
-    
-    @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {
-        showAddNewAlert()
-    }
-    
-    // Client & Vendor Buttons
-    @IBAction func clientsButtonTapped(_ sender: UIButton) {
-    }
-    @IBAction func vendorsButtonTapped(_ sender: UIButton) {
-    }
-    
-    // Segmented Controls
-    @IBAction func clientsVendorsSegmentedControlChanged(_ sender: UISegmentedControl) {
-    }
-    @IBAction func scheduleSegmentedControlChanged(_ sender: UISegmentedControl) {
-    }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -105,45 +87,26 @@ class DashboardTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
-    
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Segue to Clients list
-        if segue.identifier == "showClientsSegue" {
-            guard let userListTableVC = segue.destination as? UserListTableViewController else { return }
-            userListTableVC.userType = .client
-        }
-        
-        // Segue to Vendors list
-        if segue.identifier == "ShowVendorsSegue" {
-            guard let userListTableVC = segue.destination as? UserListTableViewController else { return }
-            userListTableVC.userType = .vendor
-        }
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
     
     // MARK: - Methods
     
-    private func showAddNewAlert() {
+    private func updateViews() {
+        guard let userType = userType else { return }
         
-        let alert = UIAlertController(title: "Add new", message: nil, preferredStyle: UIAlertController.Style.alert)
-
-        // Client Button
-        alert.addAction(UIAlertAction(title: "Client", style: UIAlertAction.Style.default, handler: { action in
-            self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
-        }))
-        
-        // Vendor Button
-        alert.addAction(UIAlertAction(title: "Vendor", style: UIAlertAction.Style.default, handler: { action in
-            self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
-        }))
-        
-        // Data transfer schedule
-        alert.addAction(UIAlertAction(title: "Data Request", style: UIAlertAction.Style.default, handler: { action in
-            self.performSegue(withIdentifier: "NewDataTransferFromDashboardSegue", sender: self)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
+        switch userType {
+        case .client:
+            userTypeLabel.text = "Clients"
+        case .vendor:
+            userTypeLabel.text = "Vendors"
+        }
     }
 }

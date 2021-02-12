@@ -20,6 +20,8 @@
 		FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */; };
 		FABB57C425D6BAD50070D9D8 /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */; };
 		FABB57C725D6BB050070D9D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57C625D6BB050070D9D8 /* LoginViewController.swift */; };
+		FABB57CB25D6C5A90070D9D8 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57CA25D6C5A90070D9D8 /* UserType.swift */; };
+		FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vendor+Convenience.swift"; sourceTree = "<group>"; };
 		FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		FABB57C625D6BB050070D9D8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FABB57CA25D6C5A90070D9D8 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
+		FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			children = (
 				FA42C6CE25D5C078003000D6 /* Direction.swift */,
 				FA42C6D725D5C2FD003000D6 /* CoreDataStack.swift */,
+				FABB57CA25D6C5A90070D9D8 /* UserType.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			children = (
 				FABB57C625D6BB050070D9D8 /* LoginViewController.swift */,
 				FABB57C325D6BAD50070D9D8 /* DashboardTableViewController.swift */,
+				FABB57CD25D6C67F0070D9D8 /* UserListTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,10 +205,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA42C6D825D5C2FD003000D6 /* CoreDataStack.swift in Sources */,
+				FABB57CB25D6C5A90070D9D8 /* UserType.swift in Sources */,
 				FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */,
 				FA42C6D525D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld in Sources */,
 				FA42C6DC25D5C3B2003000D6 /* UsersController.swift in Sources */,
 				FA42C6DF25D5C551003000D6 /* Client+Convenience.swift in Sources */,
+				FABB57CE25D6C67F0070D9D8 /* UserListTableViewController.swift in Sources */,
 				FA42C6AD25D5B40D003000D6 /* AppDelegate.swift in Sources */,
 				FA42C6AF25D5B40D003000D6 /* SceneDelegate.swift in Sources */,
 				FABB57C425D6BAD50070D9D8 /* DashboardTableViewController.swift in Sources */,
