@@ -12,6 +12,9 @@ class VendorListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    var userController: UsersController?
+    var vendor: Vendor?
+    
     var fetchResultsController: NSFetchedResultsController<Vendor> {
         
         let fetchRequest: NSFetchRequest<Vendor> = Vendor.fetchRequest()
@@ -101,15 +104,23 @@ class VendorListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.vendor = fetchResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "ShowVendorTableVCSegue", sender: self)
     }
-    */
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Segue to VendorTableViewController
+        if segue.identifier == "ShowVendorTableVCSegue" {
+            guard let vendorTableVC = segue.destination as? VendorTableViewController else { return }
+            vendorTableVC.vendor = self.vendor
+            vendorTableVC.userController = self.userController
+        }
+    }
     
     // MARK: - Methods
     

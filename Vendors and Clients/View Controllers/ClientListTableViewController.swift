@@ -12,6 +12,9 @@ class ClientListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    var userController: UsersController?
+    var client: Client?
+    
     var fetchResultsController: NSFetchedResultsController<Client> {
         
         let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
@@ -91,16 +94,23 @@ class ClientListTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.client = fetchResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "ShowClientTableVCSegue", sender: self)
     }
-    */
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Segue to ClientTableViewController
+        if segue.identifier == "ShowClientTableVCSegue" {
+            guard let clientTableVC = segue.destination as? ClientTableViewController else { return }
+            clientTableVC.client = self.client
+            clientTableVC.userController = self.userController
+        }
+    }
     
     // MARK: - Methods
     

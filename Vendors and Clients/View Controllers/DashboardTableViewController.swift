@@ -15,28 +15,6 @@ class DashboardTableViewController: UITableViewController {
     var userController = UsersController()
     var userType: UserType?
     
-    var fetchResultsController: NSFetchedResultsController<Client> {
-        
-        let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
-        
-//        let predicate = NSPredicate(format: "%K == %@", "child.name", getChildName())
-        
-//        fetchRequest.predicate = predicate
-        
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        
-        let moc = CoreDataStack.shared.mainContext
-        let fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-        fetchResultsController.delegate = self
-        
-        do {
-            try fetchResultsController.performFetch()
-        } catch {
-            fatalError("Failed to fetch entities: \(error)")
-        }
-        return fetchResultsController
-    }
-    
     // MARK: - Outlets
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -144,6 +122,18 @@ class DashboardTableViewController: UITableViewController {
             newUserVC.userType = self.userType
             newUserVC.userController = self.userController
         }
+        
+        // Segue to ClientListTableViewController
+        if segue.identifier == "ShowClientTableVCSegue" {
+            guard let clientTableVC = segue.destination as? ClientListTableViewController else { return }
+            clientTableVC.userController = self.userController
+        }
+        
+        // Segue to VendorListTableViewController
+        if segue.identifier == "ShowVendorsSegue" {
+            guard let vendorTableVC = segue.destination as? VendorListTableViewController else { return }
+            vendorTableVC.userController = self.userController
+        }
     }
     
     // MARK: - Methods
@@ -183,48 +173,5 @@ class DashboardTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
-    }
-}
-
-extension DashboardTableViewController: NSFetchedResultsControllerDelegate {
-    
-      func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default:
-            break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            guard let newIndexPath = newIndexPath else { return }
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .update:
-            guard let indexPath = indexPath else { return }
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        case .move:
-            guard let oldIndexPath = indexPath,
-                let newIndexPath = newIndexPath else { return }
-            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .delete:
-            guard let indexPath = indexPath else { return }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        @unknown default:
-            break
-        }
     }
 }
