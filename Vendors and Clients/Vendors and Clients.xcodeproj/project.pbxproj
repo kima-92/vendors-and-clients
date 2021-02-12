@@ -27,6 +27,7 @@
 		FACD536925D717890042BAE2 /* VendorListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD536825D717890042BAE2 /* VendorListTableViewController.swift */; };
 		FACD536F25D724C60042BAE2 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD536E25D724C60042BAE2 /* ClientTableViewController.swift */; };
 		FACD537225D724D00042BAE2 /* VendorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD537125D724CF0042BAE2 /* VendorTableViewController.swift */; };
+		FACD537525D743300042BAE2 /* ScheduleClientTransferTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD537425D743300042BAE2 /* ScheduleClientTransferTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FACD536825D717890042BAE2 /* VendorListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListTableViewController.swift; sourceTree = "<group>"; };
 		FACD536E25D724C60042BAE2 /* ClientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
 		FACD537125D724CF0042BAE2 /* VendorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorTableViewController.swift; sourceTree = "<group>"; };
+		FACD537425D743300042BAE2 /* ScheduleClientTransferTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleClientTransferTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				FACD536825D717890042BAE2 /* VendorListTableViewController.swift */,
 				FACD536E25D724C60042BAE2 /* ClientTableViewController.swift */,
 				FACD537125D724CF0042BAE2 /* VendorTableViewController.swift */,
+				FACD537425D743300042BAE2 /* ScheduleClientTransferTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				FACD536F25D724C60042BAE2 /* ClientTableViewController.swift in Sources */,
 				FA42C6D825D5C2FD003000D6 /* CoreDataStack.swift in Sources */,
+				FACD537525D743300042BAE2 /* ScheduleClientTransferTableViewController.swift in Sources */,
 				FACD534B25D6EB040042BAE2 /* NewUserViewController.swift in Sources */,
 				FABB57CB25D6C5A90070D9D8 /* UserType.swift in Sources */,
 				FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */,

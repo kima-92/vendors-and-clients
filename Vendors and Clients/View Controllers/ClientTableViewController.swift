@@ -81,16 +81,18 @@ class ClientTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // Segue to ShowNewTransactionForClientSegue
+        if segue.identifier == "ShowNewDataTransferForClientSegue" {
+            guard let scheduleClientTransferTVC = segue.destination as? ScheduleClientTransferTableViewController else { return }
+            scheduleClientTransferTVC.client = self.client
+            scheduleClientTransferTVC.userController = self.userController
+        }
     }
-    */
     
     // MARK: - Methods
     

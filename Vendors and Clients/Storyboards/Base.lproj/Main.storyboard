@@ -302,7 +302,13 @@
                             <outlet property="delegate" destination="rPm-DD-Yig" id="1b7-Wo-yVh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Client" id="X3j-pO-5Xe"/>
+                    <navigationItem key="navigationItem" title="Client" id="X3j-pO-5Xe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ve5-c1-Wsh">
+                            <connections>
+                                <segue destination="Gav-gU-3us" kind="show" identifier="ShowNewDataTransferForClientSegue" id="Vzz-ng-fEH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="Ics-Im-gIG" id="Vqw-GM-ct6"/>
                     </connections>
@@ -310,6 +316,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfS-zo-kVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5240.579710144928" y="-141.29464285714286"/>
+        </scene>
+        <!--Schedule Client Transfer Table View Controller-->
+        <scene sceneID="G6V-mB-l4p">
+            <objects>
+                <tableViewController id="Gav-gU-3us" customClass="ScheduleClientTransferTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5eb-BH-aU2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="C67-34-Puu">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ohu-GP-4V6">
+                                    <rect key="frame" x="20" y="116" width="374" height="71"/>
+                                    <connections>
+                                        <action selector="datePickerChanged:" destination="Gav-gU-3us" eventType="valueChanged" id="D12-oC-08Z"/>
+                                    </connections>
+                                </datePicker>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule new Data Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzb-Rz-80W">
+                                    <rect key="frame" x="20" y="15" width="374" height="21"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4u-AX-qu9">
+                                    <rect key="frame" x="20" y="46" width="374" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="YGd-E0-dtm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="gzb-Rz-80W" firstAttribute="leading" secondItem="C67-34-Puu" secondAttribute="leading" constant="20" id="9W8-jV-81p"/>
+                                <constraint firstAttribute="bottom" secondItem="ohu-GP-4V6" secondAttribute="bottom" id="BVO-Yv-nQb"/>
+                                <constraint firstItem="ohu-GP-4V6" firstAttribute="leading" secondItem="C67-34-Puu" secondAttribute="leading" constant="20" id="C3n-To-ukY"/>
+                                <constraint firstItem="Z4u-AX-qu9" firstAttribute="top" secondItem="gzb-Rz-80W" secondAttribute="bottom" constant="10" id="JKX-ij-uuA"/>
+                                <constraint firstItem="gzb-Rz-80W" firstAttribute="top" secondItem="C67-34-Puu" secondAttribute="top" constant="15" id="O5n-0w-CoB"/>
+                                <constraint firstAttribute="trailing" secondItem="ohu-GP-4V6" secondAttribute="trailing" constant="20" id="OSo-Zd-Ohx"/>
+                                <constraint firstItem="ohu-GP-4V6" firstAttribute="top" secondItem="Z4u-AX-qu9" secondAttribute="bottom" constant="10" id="POQ-bc-fZr"/>
+                                <constraint firstItem="Z4u-AX-qu9" firstAttribute="leading" secondItem="C67-34-Puu" secondAttribute="leading" constant="20" id="R77-Ps-Fh4"/>
+                                <constraint firstAttribute="trailing" secondItem="gzb-Rz-80W" secondAttribute="trailing" constant="20" id="UuP-23-unf"/>
+                                <constraint firstAttribute="trailing" secondItem="Z4u-AX-qu9" secondAttribute="trailing" constant="20" id="lYd-QE-8mK"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VendorSchedulingCell" id="tWg-zl-Hmf">
+                                <rect key="frame" x="0.0" y="215" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tWg-zl-Hmf" id="HlS-Yu-zzI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gav-gU-3us" id="Xyk-DL-eTe"/>
+                            <outlet property="delegate" destination="Gav-gU-3us" id="FUZ-KQ-DdI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="42I-oh-VH7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AfC-r1-7Gn">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="DjB-NE-McS" id="4JM-dJ-cly"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataTextField" destination="Z4u-AX-qu9" id="i74-M6-S31"/>
+                        <outlet property="datePicker" destination="ohu-GP-4V6" id="AIi-Ov-hQO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x0P-wV-LbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DjB-NE-McS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6466.666666666667" y="-141.29464285714286"/>
         </scene>
         <!--New User View Controller-->
         <scene sceneID="n2o-Dd-RcE">
