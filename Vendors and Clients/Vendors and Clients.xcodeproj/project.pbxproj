@@ -15,6 +15,9 @@
 		FA42C6CF25D5C078003000D6 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6CE25D5C078003000D6 /* Direction.swift */; };
 		FA42C6D525D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6D325D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld */; };
 		FA42C6D825D5C2FD003000D6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6D725D5C2FD003000D6 /* CoreDataStack.swift */; };
+		FA42C6DC25D5C3B2003000D6 /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6DB25D5C3B2003000D6 /* UsersController.swift */; };
+		FA42C6DF25D5C551003000D6 /* Client+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6DE25D5C551003000D6 /* Client+Convenience.swift */; };
+		FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		FA42C6CE25D5C078003000D6 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		FA42C6D425D5C1C3003000D6 /* VendorsAndClients.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VendorsAndClients.xcdatamodel; sourceTree = "<group>"; };
 		FA42C6D725D5C2FD003000D6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FA42C6DB25D5C3B2003000D6 /* UsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		FA42C6DE25D5C551003000D6 /* Client+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+Convenience.swift"; sourceTree = "<group>"; };
+		FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vendor+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				FA42C6C225D5B424003000D6 /* Storyboards */,
+				FA42C6DA25D5C395003000D6 /* Controllers */,
 				FA42C6C525D5B536003000D6 /* Models */,
 				FA42C6CC25D5C02C003000D6 /* Helpers */,
 				FA42C6AB25D5B40D003000D6 /* Vendors and Clients */,
@@ -84,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				FA42C6D325D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld */,
+				FA42C6DE25D5C551003000D6 /* Client+Convenience.swift */,
+				FA42C6E125D5C685003000D6 /* Vendor+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +104,14 @@
 				FA42C6D725D5C2FD003000D6 /* CoreDataStack.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA42C6DA25D5C395003000D6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA42C6DB25D5C3B2003000D6 /* UsersController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA42C6D825D5C2FD003000D6 /* CoreDataStack.swift in Sources */,
+				FA42C6E225D5C685003000D6 /* Vendor+Convenience.swift in Sources */,
 				FA42C6D525D5C1C3003000D6 /* VendorsAndClients.xcdatamodeld in Sources */,
+				FA42C6DC25D5C3B2003000D6 /* UsersController.swift in Sources */,
+				FA42C6DF25D5C551003000D6 /* Client+Convenience.swift in Sources */,
 				FA42C6AD25D5B40D003000D6 /* AppDelegate.swift in Sources */,
 				FA42C6AF25D5B40D003000D6 /* SceneDelegate.swift in Sources */,
 				FA42C6CF25D5C078003000D6 /* Direction.swift in Sources */,
