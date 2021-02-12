@@ -11,6 +11,7 @@ class DashboardTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    var userController = UsersController()
     var userType: UserType?
     
     // MARK: - Outlets
@@ -130,6 +131,7 @@ class DashboardTableViewController: UITableViewController {
         if segue.identifier == "createNewUserFromDashboardSegue" {
             guard let newUserVC = segue.destination as? NewUserViewController else { return }
             newUserVC.userType = self.userType
+            newUserVC.userController = self.userController
         }
     }
     

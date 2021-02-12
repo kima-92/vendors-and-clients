@@ -19,7 +19,7 @@ class UsersController {
     
     // MARK: - Vendor Methods
     
-    func createVendor(name: String, employeeCount: Int) {
+    func createVendor(name: String) {
         let moc = CoreDataStack.shared.mainContext
         _ = Vendor(name: name, context: moc)
         CoreDataStack.shared.save(context: moc)

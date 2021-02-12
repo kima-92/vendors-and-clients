@@ -12,6 +12,7 @@ class NewUserViewController: UIViewController {
     // MARK: - Properties
     
     var userType: UserType?
+    var userController: UsersController?
     
     // MARK: - Outlets
     
@@ -29,9 +30,39 @@ class NewUserViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
+        saveUser()
     }
     
     // MARK: - Methods
+    
+    // Save user based on userType
+    private func saveUser() {
+        guard let userController = userController,
+              let userType = userType  else { return }
+        
+        // Save if the name is not empty
+        if let name = nameTextField.text,
+           !name.isEmpty {
+            
+            // Vendor
+            if userType == .vendor {
+                userController.createVendor(name: name)
+            }
+            
+            // Client
+            else {
+                var employeeCount = 0
+                
+                if let employeeString = employeeCountTextField.text,
+                   let employeeCountInt = Int(employeeString) {
+                    employeeCount = employeeCountInt
+                }
+                userController.createClient(name: name, employeeCount: employeeCount)
+                // TODO: - Limit the keyboard to enter only numbers in the employeeCountTextField
+            }
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
     
     private func updateViews() {
         guard let userType = userType else { return }
