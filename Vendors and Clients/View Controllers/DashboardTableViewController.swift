@@ -33,6 +33,7 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {
+        showAddNewAlert()
     }
     
     // Client & Vendor Buttons
@@ -113,5 +114,61 @@ class DashboardTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Methods
+    
+    private func showAddNewAlert() {
+        
+        let alert = UIAlertController(title: "Add new", message: nil, preferredStyle: UIAlertController.Style.alert)
+
+        // Client Button
+        alert.addAction(UIAlertAction(title: "Client", style: UIAlertAction.Style.default, handler: { action in
+            self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
+        }))
+        
+        // Vendor Button
+        alert.addAction(UIAlertAction(title: "Vendor", style: UIAlertAction.Style.default, handler: { action in
+            self.performSegue(withIdentifier: "createNewUserFromDashboardSegue", sender: self)
+        }))
+        
+        // Data transfer schedule
+        alert.addAction(UIAlertAction(title: "Data Request", style: UIAlertAction.Style.default, handler: { action in
+            self.performSegue(withIdentifier: "NewDataTransferFromDashboardSegue", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /*
+     class ViewController: UIViewController {
+
+         @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+
+             // create the alert
+             let alert = UIAlertController(title: "Notice", message: "Lauching this missile will destroy the entire universe. Is this what you intended to do?", preferredStyle: UIAlertController.Style.alert)
+
+             // add the actions (buttons)
+             alert.addAction(UIAlertAction(title: "Remind Me Tomorrow", style: UIAlertAction.Style.default, handler: nil))
+             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+             alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: nil))
+
+             // show the alert
+             self.present(alert, animated: true, completion: nil)
+         }
+     }
+     
+     
+     Handling Button Taps
+
+     The handler was nil in the above examples. You can replace nil with a closure to do something when the user taps a button. For example:
+
+     alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: { action in
+
+         // do something like...
+         self.launchMissile()
+
+     }))
+
+     */
 
 }

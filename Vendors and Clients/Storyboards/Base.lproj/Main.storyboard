@@ -210,11 +210,41 @@
                         <outlet property="scheduledLabel" destination="GQA-xb-jVx" id="mJE-eQ-0wy"/>
                         <outlet property="vendorCountLabel" destination="qfP-f7-5zq" id="zDP-Z7-DeJ"/>
                         <outlet property="welcomeLabel" destination="QjF-yx-mEr" id="3VL-cv-IDf"/>
+                        <segue destination="kTC-cd-nHf" kind="show" identifier="createNewUserFromDashboardSegue" id="6d5-sh-jxS"/>
+                        <segue destination="wjJ-zh-rrS" kind="show" identifier="NewDataTransferFromDashboardSegue" id="wTc-Nj-Uq6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIR-2h-B1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="219.64285714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="n2o-Dd-RcE">
+            <objects>
+                <viewController id="kTC-cd-nHf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CP7-aD-tCo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CreateNewUserViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-jM-tYV">
+                                <rect key="frame" x="90.5" y="437.5" width="233" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JWo-wv-ivo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zxd-jM-tYV" firstAttribute="centerY" secondItem="CP7-aD-tCo" secondAttribute="centerY" id="4UZ-hj-UF8"/>
+                            <constraint firstItem="zxd-jM-tYV" firstAttribute="centerX" secondItem="CP7-aD-tCo" secondAttribute="centerX" id="Fyo-OE-P4i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Unf-Bz-zAM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V0S-pA-Tol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="949"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aF3-jR-6Ed">
@@ -233,6 +263,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6L-G6-h7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-186.95652173913044" y="219.64285714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BIX-u4-XhZ">
+            <objects>
+                <viewController id="wjJ-zh-rrS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Owd-g2-GDL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ScheduleDataTransferViewController" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfC-j3-q7M">
+                                <rect key="frame" x="67" y="438" width="280" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hLa-e9-gFT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gfC-j3-q7M" firstAttribute="centerY" secondItem="Owd-g2-GDL" secondAttribute="centerY" id="do0-yF-Wgs"/>
+                            <constraint firstItem="gfC-j3-q7M" firstAttribute="centerX" secondItem="Owd-g2-GDL" secondAttribute="centerX" id="kuj-se-Tih"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mOe-C6-ZyK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhd-Ut-TD3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812" y="949"/>
         </scene>
     </scenes>
     <resources>
