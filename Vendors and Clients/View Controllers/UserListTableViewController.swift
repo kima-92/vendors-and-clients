@@ -99,6 +99,7 @@ class UserListTableViewController: UITableViewController {
     
     // MARK: - Methods
     
+    // Update UI
     private func updateViews() {
         guard let userType = userType else { return }
         
@@ -109,4 +110,6 @@ class UserListTableViewController: UITableViewController {
             userTypeLabel.text = "Vendors"
         }
     }
+    
+    // TODO: - Add an addBarButton to add a new Client or Vendor from this TableViewController
 }
