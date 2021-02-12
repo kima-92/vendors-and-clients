@@ -141,6 +141,9 @@ class DashboardTableViewController: UITableViewController {
         if let clientCount = userController.fetchClientCount() {
             clientCountLabel.text = String(clientCount)
         }
+        if let vendorCount = userController.fetchVendorCount() {
+            vendorCountLabel.text = String(vendorCount)
+        }
     }
     
     private func showAddNewAlert() {

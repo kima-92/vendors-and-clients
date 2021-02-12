@@ -18,6 +18,7 @@ class UsersController {
         CoreDataStack.shared.save(context: moc)
     }
     
+    // Creating a fetch request for clients and returning the clientCount
     func fetchClientCount() -> Int? {
         let moc = CoreDataStack.shared.mainContext
         let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
@@ -35,5 +36,17 @@ class UsersController {
         let moc = CoreDataStack.shared.mainContext
         _ = Vendor(name: name, context: moc)
         CoreDataStack.shared.save(context: moc)
+    }
+    
+    // Creating a fetch request for vendors and returning the vendorCount
+    func fetchVendorCount() -> Int? {
+        let moc = CoreDataStack.shared.mainContext
+        let fetchRequest: NSFetchRequest<Vendor> = Vendor.fetchRequest()
+        
+        let fetchedVendors = try? moc.fetch(fetchRequest)
+        if let vendors = fetchedVendors {
+            return vendors.count
+        }
+        return nil
     }
 }
