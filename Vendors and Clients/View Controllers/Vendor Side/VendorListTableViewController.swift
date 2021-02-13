@@ -13,6 +13,7 @@ class VendorListTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
     var vendor: Vendor?
     
     var fetchResultsController: NSFetchedResultsController<Vendor> {
@@ -95,6 +96,7 @@ class VendorListTableViewController: UITableViewController {
             guard let vendorTableVC = segue.destination as? VendorTableViewController else { return }
             vendorTableVC.vendor = self.vendor
             vendorTableVC.userController = self.userController
+            vendorTableVC.dataTransferController = self.dataTransferController
         }
     }
     

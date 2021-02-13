@@ -13,6 +13,7 @@ class ClientListTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
     var client: Client?
     
     var fetchResultsController: NSFetchedResultsController<Client> {
@@ -94,6 +95,7 @@ class ClientListTableViewController: UITableViewController {
             guard let clientTableVC = segue.destination as? ClientTableViewController else { return }
             clientTableVC.client = self.client
             clientTableVC.userController = self.userController
+            clientTableVC.dataTransferController = self.dataTransferController
         }
     }
     

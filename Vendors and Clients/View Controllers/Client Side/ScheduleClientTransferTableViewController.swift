@@ -13,6 +13,7 @@ class ScheduleClientTransferTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
     var client: Client?
     var vendor: Vendor?
     
@@ -105,10 +106,16 @@ class ScheduleClientTransferTableViewController: UITableViewController {
     // MARK: - Methods
     
     private func saveDataTransfer() {
-        guard let userController = userController,
+        guard let dataTransferController = dataTransferController,
               let vendor = vendor,
               let client = client else { return }
         // TODO: - Alret user if there is missing information
+        
+        // The direction is in perspective of the client
+        dataTransferController.newDataTransfer(client: client, vendor: vendor, date: datePicker.date, direction: .output)
+        navigationController?.popToRootViewController(animated: true)
+        
+        // TODO: - Manage more direction cases for the client
     }
 }
 

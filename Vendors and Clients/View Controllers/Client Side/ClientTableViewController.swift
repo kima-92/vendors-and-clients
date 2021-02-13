@@ -12,6 +12,7 @@ class ClientTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
     var client: Client?
     
     // MARK: - Outlets
@@ -76,6 +77,7 @@ class ClientTableViewController: UITableViewController {
             guard let scheduleClientTransferTVC = segue.destination as? ScheduleClientTransferTableViewController else { return }
             scheduleClientTransferTVC.client = self.client
             scheduleClientTransferTVC.userController = self.userController
+            scheduleClientTransferTVC.dataTransferController = self.dataTransferController
         }
     }
     

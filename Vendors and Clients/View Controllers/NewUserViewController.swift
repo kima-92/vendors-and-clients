@@ -11,8 +11,9 @@ class NewUserViewController: UIViewController {
     
     // MARK: - Properties
     
-    var userType: UserType?
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
+    var userType: UserType?
     
     // MARK: - Outlets
     

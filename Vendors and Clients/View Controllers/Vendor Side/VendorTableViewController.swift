@@ -12,6 +12,7 @@ class VendorTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController: UsersController?
+    var dataTransferController: DataTransferController?
     var vendor: Vendor?
     
     // MARK: - Outlets

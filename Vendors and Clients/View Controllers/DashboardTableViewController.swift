@@ -13,6 +13,7 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Properties
     
     var userController = UsersController()
+    var dataTransferController = DataTransferController()
     var userType: UserType?
     
     // MARK: - Outlets
@@ -92,18 +93,21 @@ class DashboardTableViewController: UITableViewController {
             guard let newUserVC = segue.destination as? NewUserViewController else { return }
             newUserVC.userType = self.userType
             newUserVC.userController = self.userController
+            newUserVC.dataTransferController = self.dataTransferController
         }
         
         // Segue to ClientListTableViewController
-        if segue.identifier == "ShowClientTableVCSegue" {
-            guard let clientTableVC = segue.destination as? ClientListTableViewController else { return }
-            clientTableVC.userController = self.userController
+        if segue.identifier == "showClientListSegue" {
+            guard let clientListTableVC = segue.destination as? ClientListTableViewController else { return }
+            clientListTableVC.userController = self.userController
+            clientListTableVC.dataTransferController = self.dataTransferController
         }
         
         // Segue to VendorListTableViewController
-        if segue.identifier == "ShowVendorsSegue" {
-            guard let vendorTableVC = segue.destination as? VendorListTableViewController else { return }
-            vendorTableVC.userController = self.userController
+        if segue.identifier == "ShowVendorListSegue" {
+            guard let vendorListTableVC = segue.destination as? VendorListTableViewController else { return }
+            vendorListTableVC.userController = self.userController
+            vendorListTableVC.dataTransferController = self.dataTransferController
         }
     }
     

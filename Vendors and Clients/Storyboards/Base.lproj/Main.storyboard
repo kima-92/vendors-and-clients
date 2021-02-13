@@ -119,22 +119,22 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-mO-Sxu">
                                             <rect key="frame" x="293" y="15.5" width="111" height="77"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
                                                     <rect key="frame" x="0.0" y="0.0" width="111" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Clients"/>
                                                     <connections>
                                                         <action selector="clientsButtonTapped:" destination="xCe-5a-H3I" eventType="touchUpInside" id="SaA-N7-f62"/>
-                                                        <segue destination="enf-ml-UND" kind="show" identifier="showClientsSegue" id="5BD-Sw-ul5"/>
+                                                        <segue destination="enf-ml-UND" kind="show" identifier="showClientListSegue" id="5BD-Sw-ul5"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
                                                     <rect key="frame" x="0.0" y="41" width="111" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Vendors"/>
                                                     <connections>
                                                         <action selector="vendorsButtonTapped:" destination="xCe-5a-H3I" eventType="touchUpInside" id="GsN-CF-hbO"/>
-                                                        <segue destination="tjs-Ly-eLD" kind="show" identifier="ShowVendorsSegue" id="NOq-6R-1uz"/>
+                                                        <segue destination="tjs-Ly-eLD" kind="show" identifier="ShowVendorListSegue" id="NOq-6R-1uz"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -382,7 +382,7 @@
                     <navigationItem key="navigationItem" id="42I-oh-VH7">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="AfC-r1-7Gn">
                             <connections>
-                                <action selector="saveBarButtonTapped:" destination="DjB-NE-McS" id="4JM-dJ-cly"/>
+                                <action selector="saveBarButtonTapped:" destination="Gav-gU-3us" id="s3u-CO-2cQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -392,7 +392,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0P-wV-LbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="DjB-NE-McS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6466.666666666667" y="-141.29464285714286"/>
         </scene>
