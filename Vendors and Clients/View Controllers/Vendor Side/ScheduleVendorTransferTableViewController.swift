@@ -1,25 +1,25 @@
 //
-//  ScheduleClientTransferTableViewController.swift
+//  ScheduleVendorTransferTableViewController.swift
 //  Vendors and Clients
 //
-//  Created by macbook on 2/12/21.
+//  Created by macbook on 2/13/21.
 //
 
 import UIKit
 import CoreData
 
-class ScheduleClientTransferTableViewController: UITableViewController {
+class ScheduleVendorTransferTableViewController: UITableViewController {
     
     // MARK: - Properties
     
     var userController: UsersController?
     var dataTransferController: DataTransferController?
-    var client: Client?
     var vendor: Vendor?
+    var client: Client?
     
-    var fetchResultsController: NSFetchedResultsController<Vendor> {
+    var fetchResultsController: NSFetchedResultsController<Client> {
         
-        let fetchRequest: NSFetchRequest<Vendor> = Vendor.fetchRequest()
+        let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
@@ -85,12 +85,12 @@ class ScheduleClientTransferTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        vendor = fetchResultsController.object(at: indexPath)
+        client = fetchResultsController.object(at: indexPath)
     }
     
     /*
@@ -107,19 +107,19 @@ class ScheduleClientTransferTableViewController: UITableViewController {
     
     private func saveDataTransfer() {
         guard let dataTransferController = dataTransferController,
-              let vendor = vendor,
-              let client = client else { return }
+              let client = client,
+              let vendor = vendor else { return }
         // TODO: - Alret user if there is missing information
         
         // The direction is in perspective of the CLIENT
-        dataTransferController.newDataTransfer(client: client, vendor: vendor, date: datePicker.date, direction: .output)
+        dataTransferController.newDataTransfer(client: client, vendor: vendor, date: datePicker.date, direction: .input)
         navigationController?.popToRootViewController(animated: true)
         
-        // TODO: - Manage more direction cases for the client
+        // TODO: - Manage more direction cases for the vendor
     }
 }
 
-extension ScheduleClientTransferTableViewController: NSFetchedResultsControllerDelegate {
+extension ScheduleVendorTransferTableViewController: NSFetchedResultsControllerDelegate {
     
       func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

@@ -601,7 +601,13 @@
                             <outlet property="delegate" destination="ZyT-x0-2m8" id="Xmu-G6-r39"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="YwY-6Z-U65"/>
+                    <navigationItem key="navigationItem" id="YwY-6Z-U65">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wjh-ZB-Z2K">
+                            <connections>
+                                <segue destination="ebw-VY-DZT" kind="show" identifier="ShowNewDataTransferForVendorSegue" id="H9C-LE-Xbt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="VcQ-hn-K8F" id="Ctd-A7-V95"/>
                     </connections>
@@ -627,6 +633,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxW-Ir-QL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1702.8985507246377" y="219.64285714285714"/>
+        </scene>
+        <!--Schedule Vendor Transfer Table View Controller-->
+        <scene sceneID="8Lp-Wb-Sh8">
+            <objects>
+                <tableViewController id="ebw-VY-DZT" customClass="ScheduleVendorTransferTableViewController" customModule="Vendors_and_Clients" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oed-A1-LzO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="dxw-D4-jId">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="VQJ-JX-xGr">
+                                    <rect key="frame" x="20" y="116" width="374" height="71"/>
+                                    <connections>
+                                        <action selector="datePickerChanged:" destination="ebw-VY-DZT" eventType="valueChanged" id="n5e-Vy-HTc"/>
+                                    </connections>
+                                </datePicker>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule new Data Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsX-rN-Y0e">
+                                    <rect key="frame" x="20" y="15" width="374" height="21"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6kL-Tk-L7B">
+                                    <rect key="frame" x="20" y="46" width="374" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="UoS-rg-Cfr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="rsX-rN-Y0e" firstAttribute="leading" secondItem="dxw-D4-jId" secondAttribute="leading" constant="20" id="2iC-OZ-c31"/>
+                                <constraint firstItem="VQJ-JX-xGr" firstAttribute="top" secondItem="6kL-Tk-L7B" secondAttribute="bottom" constant="10" id="8Hv-4A-6Oz"/>
+                                <constraint firstAttribute="bottom" secondItem="VQJ-JX-xGr" secondAttribute="bottom" id="THy-4J-cFY"/>
+                                <constraint firstItem="rsX-rN-Y0e" firstAttribute="top" secondItem="dxw-D4-jId" secondAttribute="top" constant="15" id="gzq-7C-0i3"/>
+                                <constraint firstAttribute="trailing" secondItem="VQJ-JX-xGr" secondAttribute="trailing" constant="20" id="huA-gI-MKx"/>
+                                <constraint firstAttribute="trailing" secondItem="6kL-Tk-L7B" secondAttribute="trailing" constant="20" id="ibs-s8-b99"/>
+                                <constraint firstItem="VQJ-JX-xGr" firstAttribute="leading" secondItem="dxw-D4-jId" secondAttribute="leading" constant="20" id="j7D-BI-G1W"/>
+                                <constraint firstItem="6kL-Tk-L7B" firstAttribute="leading" secondItem="dxw-D4-jId" secondAttribute="leading" constant="20" id="n9Z-WC-WEf"/>
+                                <constraint firstItem="6kL-Tk-L7B" firstAttribute="top" secondItem="rsX-rN-Y0e" secondAttribute="bottom" constant="10" id="xqi-Ek-ywT"/>
+                                <constraint firstAttribute="trailing" secondItem="rsX-rN-Y0e" secondAttribute="trailing" constant="20" id="zxJ-To-rQQ"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VendorSchedulingCell" id="1FZ-L8-G2d">
+                                <rect key="frame" x="0.0" y="215" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1FZ-L8-G2d" id="PYC-HT-6pi">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ebw-VY-DZT" id="nrI-ME-IdU"/>
+                            <outlet property="delegate" destination="ebw-VY-DZT" id="YKS-Mn-HBe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="t6t-ZP-TJ3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EE4-Hw-uDd">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="ebw-VY-DZT" id="UlI-UN-JNH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataTextField" destination="6kL-Tk-L7B" id="vWA-py-y87"/>
+                        <outlet property="datePicker" destination="VQJ-JX-xGr" id="LOI-o2-Rzs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ha5-dc-z4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6467" y="611"/>
         </scene>
     </scenes>
     <resources>

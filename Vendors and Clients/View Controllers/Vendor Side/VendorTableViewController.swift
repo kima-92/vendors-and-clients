@@ -60,15 +60,18 @@ class VendorTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // Segue to ShowNewDataTransferForVendorSegue
+        if segue.identifier == "ShowNewDataTransferForVendorSegue" {
+            guard let scheduleVendorTransferTVC = segue.destination as? ScheduleVendorTransferTableViewController else { return }
+            scheduleVendorTransferTVC.vendor = self.vendor
+            scheduleVendorTransferTVC.userController = self.userController
+            scheduleVendorTransferTVC.dataTransferController = self.dataTransferController
+        }
     }
-    */
     
     // MARK: - Methods
     
