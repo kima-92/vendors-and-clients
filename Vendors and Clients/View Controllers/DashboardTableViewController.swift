@@ -16,6 +16,24 @@ class DashboardTableViewController: UITableViewController {
     var dataTransferController = DataTransferController()
     var userType: UserType?
     
+    var fetchResultsController: NSFetchedResultsController<DataTransfer> {
+        
+        let fetchRequest: NSFetchRequest<DataTransfer> = DataTransfer.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultsController.delegate = self
+        
+        do {
+            try fetchResultsController.performFetch()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+        return fetchResultsController
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -53,24 +71,28 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchResultsController.fetchedObjects?.count ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainUserCell", for: indexPath)
+        let dataTransfer = fetchResultsController.object(at: indexPath)
+        
+        if let date = dataTransfer.date {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd,yyyy"
+            cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        }
+        cell.textLabel?.text = dataTransfer.direction
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -113,12 +135,16 @@ class DashboardTableViewController: UITableViewController {
     
     // MARK: - Methods
     
+    // Updating UI
     private func updateViews() {
         if let clientCount = userController.fetchClientCount() {
             clientCountLabel.text = String(clientCount)
         }
         if let vendorCount = userController.fetchVendorCount() {
             vendorCountLabel.text = String(vendorCount)
+        }
+        if let scheduledTransferCount = fetchResultsController.fetchedObjects?.count {
+            scheduledCountLabel.text = String(scheduledTransferCount)
         }
     }
     
@@ -149,5 +175,48 @@ class DashboardTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DashboardTableViewController: NSFetchedResultsControllerDelegate {
+    
+      func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+                let newIndexPath = newIndexPath else { return }
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        @unknown default:
+            break
+        }
     }
 }
