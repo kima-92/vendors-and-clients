@@ -62,9 +62,7 @@ class DashboardTableViewController: UITableViewController {
     @IBAction func vendorsButtonTapped(_ sender: UIButton) {
     }
     
-    // Segmented Controls
-    @IBAction func clientsVendorsSegmentedControlChanged(_ sender: UISegmentedControl) {
-    }
+    // Segmented Control
     @IBAction func scheduleSegmentedControlChanged(_ sender: UISegmentedControl) {
     }
     

@@ -17,24 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="TgH-PR-TA9">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="09M-QD-p8G">
-                                    <rect key="frame" x="5" y="121" width="404" height="67"/>
+                                    <rect key="frame" x="5" y="136" width="404" height="31"/>
                                     <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jLr-7N-IU4">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="32"/>
-                                            <segments>
-                                                <segment title="Clients"/>
-                                                <segment title="Vendors"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="clientsVendorsSegmentedControlChanged:" destination="xCe-5a-H3I" eventType="valueChanged" id="6fk-ed-yO4"/>
-                                            </connections>
-                                        </segmentedControl>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FwN-1j-qiw">
-                                            <rect key="frame" x="0.0" y="36" width="404" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="32"/>
                                             <segments>
                                                 <segment title="Daily"/>
                                                 <segment title="Weekly"/>
@@ -47,7 +37,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-zP-hob">
-                                    <rect key="frame" x="5" y="3.5" width="404" height="107.5"/>
+                                    <rect key="frame" x="5" y="18.5" width="404" height="107.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CI8-ar-szw">
                                             <rect key="frame" x="0.0" y="0.0" width="237" height="107.5"/>
@@ -119,7 +109,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-mO-Sxu">
                                             <rect key="frame" x="287" y="15.5" width="117" height="77"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-R3-17s">
                                                     <rect key="frame" x="0.0" y="0.0" width="117" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Clients"/>
@@ -128,7 +118,7 @@
                                                         <segue destination="enf-ml-UND" kind="show" identifier="showClientListSegue" id="5BD-Sw-ul5"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-XB-awj">
                                                     <rect key="frame" x="0.0" y="41" width="117" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Vendors"/>
@@ -154,7 +144,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainUserCell" textLabel="7jc-OX-g0S" detailTextLabel="zfw-m1-E39" style="IBUITableViewCellStyleSubtitle" id="57M-hl-ogq">
-                                <rect key="frame" x="0.0" y="216" width="414" height="55.5"/>
+                                <rect key="frame" x="0.0" y="195" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="57M-hl-ogq" id="qtv-c0-fEc">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>

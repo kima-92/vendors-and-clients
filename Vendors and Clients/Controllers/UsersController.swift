@@ -30,6 +30,33 @@ class UsersController {
         return nil
     }
     
+     func fetchClients() -> [Client]? {
+         let moc = CoreDataStack.shared.mainContext
+         let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
+         
+         let fetchedClients = try? moc.fetch(fetchRequest)
+         if let clients = fetchedClients {
+             return clients
+         }
+         return nil
+     }
+     
+     func fetchClient(id: UUID) -> Client? {
+         let moc = CoreDataStack.shared.mainContext
+         let fetchRequest: NSFetchRequest<Client> = Client.fetchRequest()
+         
+         let idArray = [id]
+         fetchRequest.predicate = NSPredicate(format: "id IN %@", idArray)
+         
+         let fetchedClients = try? moc.fetch(fetchRequest)
+         guard let clients = fetchedClients else { return nil }
+         
+         for client in clients {
+             return client
+         }
+         return nil
+     }
+    
     // MARK: - Vendor Methods
     
     func createVendor(name: String) {
