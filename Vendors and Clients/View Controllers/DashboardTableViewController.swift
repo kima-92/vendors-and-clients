@@ -50,6 +50,12 @@ class DashboardTableViewController: UITableViewController {
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        updateViews()
+    }
+    
     // MARK: - Actions
     
     @IBAction func addBarButtonTapped(_ sender: UIBarButtonItem) {
